@@ -117,4 +117,3 @@ docker run -d -p 8888:8888 -e password=admin ipython/notebook
 ![ipython login](http://blog.daocloud.io/wp-content/uploads/2015/09/QQ20150902-1.png)
 
 ![](http://blog.daocloud.io/wp-content/uploads/2015/09/QQ20150902-2.png)
-
