@@ -1,10 +1,10 @@
-## 如何开发一个 Python 的 Docker 化应用
+## 如何开发一个基于 Docker 的 Python 应用
 
-> 目标：用 Docker 镜像的方式搭建一个 IPython Notebook 应用
+> 目标：用 Docker 的方式搭建一个 IPython Notebook 应用
 > 
 > 本项目代码维护在 **[DaoCloud/python-ipython-notebook](https://github.com/DaoCloud/python-ipython-notebook)** 项目中。
 >
-> 您可以在 GitHub 找到本项目并获取本文中所提到的所有脚本文件。
+> 您可以在 GitHub 找到本项目并获取本文中所提到的所有代码文件。
 
 #### 前言
 
@@ -28,9 +28,9 @@ Python 家族成员繁多，解决五花八门的业务需求。这里将通过 
 FROM python:2.7
 ```
 
-> 因所有官方镜像均位于境外服务器，为了确保所有示例能正常运行，DaoCloud 提供了一套境内镜像源，并与官方源保持同步。如果使用 DaoCloud 的镜像源，则修改为：`FROM daocloud.io/python:2.7`。   
+> 因所有官方镜像均位于境外服务器，为了确保所有示例能正常运行，可以使用与官方镜像保持同步的 DaoCloud 境内镜像：`FROM daocloud.io/python:2.7`。   
 > 
-> 也推荐通过 DaoCloud ToolBox 极速下载官方镜像！
+> 也推荐通过 **[DaoCloud Toolbox](http://blog.daocloud.io/toolbox)** 极速下载官方镜像！
 
 - 设置镜像的维护者，相当于镜像的作者或发行方。
 
