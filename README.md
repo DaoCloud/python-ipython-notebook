@@ -55,7 +55,7 @@ COPY docker-entrypoint.sh /usr/local/bin/
 >
 > ##### 使用 `RUN` 命令调用 pip 包管理器安装 App 的依赖包
 > 
-> 在编写 Dockerfile 时可以尽量将安装依赖的过程提前以提高缓存命中率。
+> 在编写 Dockerfile 时尽量将安装依赖的过程提前以提高镜像层的复用率。
 
 - 启动应用进程
 
