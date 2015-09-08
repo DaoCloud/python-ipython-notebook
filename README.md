@@ -68,9 +68,9 @@ CMD [""]
 > 
 > ##### `ENTRYPOINT` 与 `CMD` 的区别
 > 
-> `ENTRYPOINT` 指定了该镜像启动时的入口，`CMD` 则指定了容器启动时的命令，当两者公用时，完整的启动命令像是 `ENTRYPOINT + CMD` 这样。使用 `ENTRYPOINT` 的好处是在我们启动镜像就像是启动了一个可执行程序，在 `CMD` 上仅需要指定参数；另外在我们需要自定义 `CMD` 时不容易出错。
+> `ENTRYPOINT` 指定了该镜像启动时的入口，`CMD` 则指定了容器启动时的命令，当两者共用时，完整的启动命令像是 `ENTRYPOINT + CMD` 这样。使用 `ENTRYPOINT` 的好处是在我们启动镜像就像是启动了一个可执行程序，在 `CMD` 上仅需要指定参数；另外在我们需要自定义 `CMD` 时不容易出错。
 
-#### 制作启动脚本 (docker-entrypoint.sh)
+#### 制作启动脚本（docker-entrypoint.sh）
 
 ``` bash
 #!/bin/bash
@@ -98,7 +98,7 @@ ipython notebook --no-browser --port 8888 --ip=* --NotebookApp.password="$HASH"
 
 一般我们会将初始化应用的过程编写成一个启动脚本，在脚本里以环境变量或命令行参数的形式获取应用初始化所必须的信息，然后配置并启动应用。
 
-#### 运行容器
+#### 启动容器
 
 有了 Dockerfile 以后，我们可以运行下面的命令构建 Python 应用镜像并命名为 `ipython/notebook`：
 
