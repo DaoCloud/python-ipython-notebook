@@ -6,7 +6,7 @@
 
 ### 前言
 
-Python 家族成员繁多，解决五花八门的业务需求。这里将通过 Python 明星项目 IPython Notebook，使其容器化，让大家掌握基础的 Docker 使用方法。
+Python 家族成员繁多，解决五花八门的业务需求。这里将通过 Python 明星项目 IPython Notebook，使其容器化，让大家掌握基础的 Docker 使用方法。
 
 > IPython Notebook 目前已经成为用 Python 做教学、计算、科研的一个重要工具。
 
