@@ -14,17 +14,17 @@ Python 家族成员繁多，解决五花八门的业务需求。这里将通过 
 
 #### Docker 化应用的关键元素
 
-- 镜像是 Docker 应用的静态表示，是应用的交付件，镜像中包含了应用运行所需的所有依赖：包括应用代码、应用依赖库、应用运行时和操作系统。
-- Dockerfile 是一个描述文件，描述了产生 Docker 镜像的过程，详细文档可以参见官方文档 [Dockerfile reference](https://docs.docker.com/reference/builder/)。
-- 容器是镜像运行时的动态表示，如果把镜像想象为一个 Class 那么容器就是这个 Class 的一个实例。
+* 镜像是 Docker 应用的静态表示，是应用的交付件，镜像中包含了应用运行所需的所有依赖：包括应用代码、应用依赖库、应用运行时和操作系统。
+* Dockerfile 是一个描述文件，描述了产生 Docker 镜像的过程，详细文档可以参见官方文档 **[Dockerfile reference](https://docs.docker.com/reference/builder/)**。
+* 容器是镜像运行时的动态表示，如果把镜像想象为一个 Class 那么容器就是这个 Class 的一个实例。
 
 一个应用 Docker 化的第一步就是通过 Dockerfile 产生应用镜像。
 
 #### 编写 Dockerfile
 
-- 选择 Python 2.7 版本为我们依赖的系统镜像。
+* 选择 Python 2.7 版本为我们依赖的系统镜像。
 
-``` dockerfile
+```dockerfile
 FROM python:2.7
 ```
 
@@ -32,15 +32,15 @@ FROM python:2.7
 > 
 > 也推荐通过 **[DaoCloud Toolbox](http://blog.daocloud.io/toolbox)** 极速下载官方镜像！
 
-- 设置镜像的维护者，相当于镜像的作者或发行方。
+* 设置镜像的维护者，相当于镜像的作者或发行方。
 
-``` dockerfile
+```dockerfile
 MAINTAINER Captain Dao <support@daocloud.io>
 ```
 
-- 向镜像中添加文件并安装依赖。
+* 向镜像中添加文件并安装依赖。
 
-``` dockerfile
+```dockerfile
 RUN mkdir -p /app
 WORKDIR /app
 
@@ -59,11 +59,12 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 - 启动应用进程
 
-``` dockerfile
+```dockerfile
 EXPOSE 8888
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD [""]
 ```
+
 > 通过 `EXPOSE` 指定该镜像需要公开的端口。
 > 
 > ##### `ENTRYPOINT` 与 `CMD` 的区别
@@ -72,11 +73,10 @@ CMD [""]
 
 #### 制作启动脚本（docker-entrypoint.sh）
 
-``` bash
+```bash
 #!/bin/bash
 # Strict mode
 set -euo pipefail
-
 
 # Create the hash to pass to the IPython notebook, but don't export it so it doesn't appear
 # as an environment variable within IPython kernels themselves
@@ -102,15 +102,15 @@ ipython notebook --no-browser --port 8888 --ip=* --NotebookApp.password="$HASH"
 
 有了 Dockerfile 以后，我们可以运行下面的命令构建 Python 应用镜像并命名为 `ipython/notebook`：
 
-- 通过指令建立镜像
+* 通过指令建立镜像
 
-``` 
+```
 docker bulid -t ipython/notebook .
 ```
 
-- 通过以下指令启动容器
+* 通过以下指令启动容器
 
-``` 
+```
 docker run -d -p 8888:8888 -e PASSWORD=admin ipython/notebook 
 ```
 
