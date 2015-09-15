@@ -105,7 +105,7 @@ ipython notebook --no-browser --port 8888 --ip=* --NotebookApp.password="$HASH"
 * 通过指令建立镜像
 
 ```
-docker bulid -t ipython/notebook .
+docker build -t ipython/notebook .
 ```
 
 * 通过以下指令启动容器
