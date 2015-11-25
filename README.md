@@ -46,7 +46,9 @@ WORKDIR /app
 
 ADD requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-COPY docker-entrypoint.sh /usr/local/bin/
+
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 ```
 
 > ##### `ADD` 与 `COPY` 的区别
@@ -56,8 +58,12 @@ COPY docker-entrypoint.sh /usr/local/bin/
 > ##### 使用 `RUN` 命令调用 pip 包管理器安装 App 的依赖包
 > 
 > 在编写 Dockerfile 时尽量将安装依赖的过程提前以提高镜像层的复用率。
+> 
+> ##### 设置 `docker-entrypoint.sh` 文件的执行权限
+> 
+> 在 Dockerfile 中设置文件权限，可以保证其在每次制作完成的镜像里的权限都是正确的。
 
-- 启动应用进程
+* 启动应用进程
 
 ```dockerfile
 EXPOSE 8888
